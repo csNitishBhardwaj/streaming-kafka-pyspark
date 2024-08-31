@@ -1,0 +1,8 @@
+{
+  "namespace": "com.nblabs.taxi",
+  "type": "record",
+  "name": "RideRecordKey",
+  "fields": [
+    {"name": "vendor_id", "type": "int"}
+  ]
+}

@@ -1,0 +1,8 @@
+FROM bitnami/spark:3.5.2
+
+USER root
+
+RUN apt-get clean  && \
+	apt-get update && \
+	apt-get install -y curl && \
+	apt-get install -y python3
