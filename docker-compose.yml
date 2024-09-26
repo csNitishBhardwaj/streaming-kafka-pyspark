@@ -31,23 +31,23 @@ services:
       SPARK_WORKER_MEMORY: 2g
       SPARK_MASTER_URL: spark://spark-master:7077
 
-  spark-worker-2: &worker
-    container_name: spark-worker-2
-    hostname: spark-worker-2
-    build:
-      context: .
-      dockerfile: Dockerfile.spark
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    volumes:
-      - ./spark-jobs:/opt/bitnami/spark/spark-jobs:rw
-      - ./resources/schemas:/opt/bitnami/spark/resources/schemas:rw
-    depends_on:
-      - spark-master
-    environment:
-      SPARK_MODE: worker
-      SPARK_WORKER_CORES: 2
-      SPARK_WORKER_MEMORY: 2g
-      SPARK_MASTER_URL: spark://spark-master:7077
+  # spark-worker-2: &worker
+  #   container_name: spark-worker-2
+  #   hostname: spark-worker-2
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.spark
+  #   command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+  #   volumes:
+  #     - ./spark-jobs:/opt/bitnami/spark/spark-jobs:rw
+  #     - ./resources/schemas:/opt/bitnami/spark/resources/schemas:rw
+  #   depends_on:
+  #     - spark-master
+  #   environment:
+  #     SPARK_MODE: worker
+  #     SPARK_WORKER_CORES: 1
+  #     SPARK_WORKER_MEMORY: 1g
+  #     SPARK_MASTER_URL: spark://spark-master:7077
 
   broker:
     image: confluentinc/cp-kafka:7.2.0
